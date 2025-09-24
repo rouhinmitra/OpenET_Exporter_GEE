@@ -7,12 +7,11 @@ Export OpenET Ensemble Monthly Evapotranspiration v2.0 mosaics from Google Earth
 This tool uses the [OpenET Ensemble Monthly Evapotranspiration v2.0](https://developers.google.com/earth-engine/datasets/catalog/OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0#image-properties) dataset from Google Earth Engine.
 
 **Key Features:**
-- **Spatial Resolution:** 30 meters × 30 meters (0.22 acres per pixel)
+- **Spatial Resolution:** 30 meters
 - **Temporal Coverage:** 1999-10-01 to 2024-12-01
-- **Data Type:** Monthly evapotranspiration (ET) as equivalent depth of water in millimeters
+- **Data Type:** Monthly evapotranspiration (ET) in mm/month
 - **Models:** Ensemble of 6 ET models (ALEXI/DisALEXI, eeMETRIC, geeSEBAL, PT-JPL, SIMS, SSEBop)
-- **License:** CC-BY-4.0
-- **Source:** Landsat satellite data
+
 
 The ensemble ET value is calculated as the mean of the ensemble after filtering outliers using the median absolute deviation approach.
 
