@@ -7,26 +7,24 @@ Export OpenET Ensemble Monthly Evapotranspiration v2.0 mosaics from Google Earth
 This tool uses the [OpenET Ensemble Monthly Evapotranspiration v2.0](https://developers.google.com/earth-engine/datasets/catalog/OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0#image-properties) dataset from Google Earth Engine.
 
 **Key Features:**
-- **Spatial Resolution:** 30 meters
+- **Spatial Resolution:** 30 meters × 30 meters (0.22 acres per pixel)
 - **Temporal Coverage:** 1999-10-01 to 2024-12-01
-- **Data Type:** Monthly evapotranspiration (ET) in mm/month
+- **Data Type:** Monthly evapotranspiration (ET) as equivalent depth of water in millimeters
 - **Models:** Ensemble of 6 ET models (ALEXI/DisALEXI, eeMETRIC, geeSEBAL, PT-JPL, SIMS, SSEBop)
-
+- **License:** CC-BY-4.0
+- **Source:** Landsat satellite data
 
 The ensemble ET value is calculated as the mean of the ensemble after filtering outliers using the median absolute deviation approach.
 
 ## Setup
 
-1. Create a conda environment and install requirements:
-
+Create the conda environment from the full export (exact replica):
 ```bash
-conda create -n openet python=3.11
-conda activate openet
-pip install -r Download/requirements.txt
+conda env create -f environment_full.yml
+conda activate rs  # or the name inside environment_full.yml
 ```
 
-2. Authenticate Earth Engine (first time):
-
+Authenticate Earth Engine (first time):
 ```bash
 python -c "import ee; ee.Authenticate()"
 ```
@@ -34,7 +32,6 @@ python -c "import ee; ee.Authenticate()"
 ## Usage
 
 Edit the script variables in `Download/download_openet.py`:
-
 ```python
 # Update these variables in the script:
 project_ID = "your-ee-project-id"
@@ -45,7 +42,6 @@ overall_end_date = "2020-06-30"
 ```
 
 Then run:
-
 ```bash
 python Download/download_openet.py
 ```
@@ -63,3 +59,4 @@ python Download/download_openet.py
 - The script uses the first image's projection for the mosaic to maintain 30m resolution
 - Sequential export submission prevents Google Drive from creating duplicate folders
 - Adjust `delay_seconds = 2` if you want faster/faster submission
+
